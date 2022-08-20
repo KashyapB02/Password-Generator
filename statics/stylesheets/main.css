@@ -22,6 +22,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1rem;
+    position: relative;
 }
 
 html,
@@ -221,7 +222,19 @@ button {
     box-shadow: 0 0 7.5px rgb(0 0 0 / 15%);
 }
 
+.textSelectDisabled {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.main__generator__passwordText::selection {
+    background-color: hsl(210, 100%, 50%, 0.8);
+    color: #FFFFFF;
+}
+
 .main__generator__passwordCopyBtn {
+    display: none;
     position: absolute;
     background-color: #FFFFFF;
     padding: 0.25em 0.75em;
@@ -236,6 +249,13 @@ button {
     -webkit-transition: background-color 100ms linear;
     -moz-transition: background-color 100ms linear;
     transition: background-color 100ms linear;
+}
+
+.main__generator__passwordCopyBtn:disabled {
+    background-color: hsl(210, 100%, 50%, 0.8);
+    border: 1px solid transparent;
+    color: white;
+    cursor:text;
 }
 
 .main__generator__passwordCopyBtn:hover {
@@ -259,10 +279,11 @@ button {
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .main__generator__container__form__formLabels {
-    flex: 1;
+    width: max-content;
 	font-family: 'Source Sans Pro', sans-serif;
     font-weight: 600;
     font-size: 0.9rem;
@@ -318,6 +339,74 @@ button {
     animation: fill-width 500ms cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 
+.main__modal {
+    background-color: rgb(0, 0, 0, 0.5);
+    padding-block: 1rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    -webkit-animation: fade-in 150ms ease-out;
+    -moz-animation: fade-in 150ms ease-out;
+    animation: fade-in 150ms ease-out;
+}
+
+.modalClosed {
+    display: none !important;
+    opacity: 0;
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+}
+
+.main__modal__container {
+    width: 90%;
+    max-width: 400px;
+    aspect-ratio: 5/2;
+    background-color: #FFFFFF;
+    padding: 1rem;
+    border-radius: 2.5px;
+    -webkit-animation: float-in 300ms ease-out;
+    -moz-animation: float-in 300ms ease-out;
+    animation: float-in 300ms ease-out;
+}
+
+.modalClosed .main__modal__container {
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+}
+
+.main__modal__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    z-index: 9;
+}
+
+.main__modal__container__messageText {
+    margin-top: auto;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #343434;
+    text-align: center;
+}
+
+.main__modal__closeBtn {
+    background-color: rgb(2, 3, 129, 0.9);
+    width: max-content;
+    padding: 0.25em 1em;
+    margin-top: auto;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1rem;
+    border: none;
+    border-radius: 2.5px;
+    color: #FFFFFF;
+}
+
 @media screen and (min-width: 400px) {
     .main__container__header {
         padding: 0.5rem 1rem;
@@ -356,6 +445,10 @@ button {
         margin-top: 2rem;
         font-size: 1.2rem;
     }
+
+    .main__modal__closeBtn {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (min-width: 540px) {
@@ -365,6 +458,10 @@ button {
 
     .main__container {
         height: calc(100vh - 5rem);
+    }
+
+    .main__modal {
+        padding: 2.5rem;
     }
 }
 

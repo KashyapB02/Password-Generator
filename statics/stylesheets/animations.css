@@ -64,6 +64,7 @@
         width: 100%;
     }
 }
+
 @-moz-keyframes fill-width {
     0% {
         width: 0;
@@ -71,6 +72,7 @@
         width: 100%;
     }
 }
+
 @keyframes fill-width {
     0% {
         width: 0;
@@ -88,6 +90,7 @@
         width: 0;
     }
 }
+
 @-moz-keyframes collapse-width {
     0% {
         width: 100%;
@@ -95,6 +98,7 @@
         width: 0;
     }
 }
+
 @keyframes collapse-width {
     0% {
         width: 100%;
@@ -103,3 +107,67 @@
     }
 }
 /* ------------------------------------ */
+
+/* ---------- Float In ---------- */
+@-webkit-keyframes float-in {
+    0% {
+        -webkit-transform: translateY(-3rem);
+        -moz-transform: translateY(-3rem);
+        transform: translateY(-3rem);
+    } 100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@-moz-keyframes float-in {
+    0% {
+        -webkit-transform: translateY(-3rem);
+        -moz-transform: translateY(-3rem);
+        transform: translateY(-3rem);
+    } 100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes float-in {
+    0% {
+        -webkit-transform: translateY(-3rem);
+        -moz-transform: translateY(-3rem);
+        transform: translateY(-3rem);
+    } 100% {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        transform: translateY(0);
+    }
+}
+/* ------------------------------ */
+
+/* ---------- Fade In ---------- */
+@-webkit-keyframes fade-in {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fade-in {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    } 100% {
+        opacity: 1;
+    }
+}
+/* ----------------------------- */

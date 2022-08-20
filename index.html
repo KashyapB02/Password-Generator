@@ -30,12 +30,12 @@
         <section class="main__generator" id="main__generator">
             <main class="main__generator__container" id="main__generator__container">
                 <div class="main__generator__passwordTextContainer">
-                    <p class="main__generator__passwordText" id="passwordText">Password Here</p>
+                    <p class="main__generator__passwordText textSelectDisabled" id="passwordText">Password Here</p>
                     <button type="button" class="main__generator__passwordCopyBtn" id="passwordCopyBtn">COPY</button>
                 </div>
                 <form class="main__generator__container__form" id="passwordGeneratorForm">
                     <div class="main__generator__container__form__formControlContainers">
-                        <label for="passwordLength" class="main__generator__container__form__formLabels">Password Length</label>
+                        <label for="passwordLength" class="main__generator__container__form__formLabels">Password Length (6 - 16)</label>
                         <input type="number" name="passwordLength" id="passwordLength" value="8" class="main__generator__container__form__formInputs">
                     </div>
                     <div class="main__generator__container__form__formControlContainers">
@@ -58,6 +58,12 @@
                 </form>
             </main>
         </section>
+    </div>
+    <div class="main__modal modalClosed" id="main__modal">
+        <div class="main__modal__container" id="main__modal__container">
+            <p class="main__modal__container__messageText" id="main__modal__container__messageText"></p>
+            <button class="main__modal__closeBtn" id="main__modal__closeBtn">Got It</button>
+        </div>
     </div>
     <script type="text/javascript" src="./statics/scripts/script.js"></script>
 </body>
