@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link type="text/css" rel="stylesheet" href="./statics/stylesheets/main.css">
+    <link type="text/css" rel="stylesheet" href="./statics/stylesheets/animations.css">
+
+    <title>Password Generator</title>
+</head>
+<body class="main">
+    <div class="main__container">
+        <div class="main__container__header">
+            <div class="main__container__header__colorCircleContainer">
+                <p class="main__container__header__colorCircles"></p>
+                <p class="main__container__header__colorCircles"></p>
+                <p class="main__container__header__colorCircles"></p>
+            </div>
+            <div class="main__container__header__headerText">
+                <h1 class="headerText">Password Generator</h1>
+            </div>
+            <div class="main__container__header__hamburgerContainer">
+                <p class="main__container__header__hamburgerLines"></p>
+                <p class="main__container__header__hamburgerLines"></p>
+                <p class="main__container__header__hamburgerLines"></p>
+            </div>
+        </div>
+        <section class="main__generator" id="main__generator">
+            <main class="main__generator__container" id="main__generator__container">
+                <div class="main__generator__passwordTextContainer">
+                    <p class="main__generator__passwordText" id="passwordText">Password Here</p>
+                    <button type="button" class="main__generator__passwordCopyBtn" id="passwordCopyBtn">COPY</button>
+                </div>
+                <form class="main__generator__container__form" id="passwordGeneratorForm">
+                    <div class="main__generator__container__form__formControlContainers">
+                        <label for="passwordLength" class="main__generator__container__form__formLabels">Password Length</label>
+                        <input type="number" name="passwordLength" id="passwordLength" value="8" class="main__generator__container__form__formInputs">
+                    </div>
+                    <div class="main__generator__container__form__formControlContainers">
+                        <label for="uppercaseCheckbox" class="main__generator__container__form__formLabels">Contain Uppercase Letters</label>
+                        <input type="checkbox" name="uppercaseCheckbox" id="uppercaseCheckbox" class="main__generator__container__form__formInputs">
+                    </div>
+                    <div class="main__generator__container__form__formControlContainers">
+                        <label for="lowercaseCheckbox" class="main__generator__container__form__formLabels">Contain Lowercase Letters</label>
+                        <input type="checkbox" name="lowercaseCheckbox" id="lowercaseCheckbox" class="main__generator__container__form__formInputs">
+                    </div>
+                    <div class="main__generator__container__form__formControlContainers">
+                        <label for="numbersCheckbox" class="main__generator__container__form__formLabels">Contain Numbers</label>
+                        <input type="checkbox" name="numbersCheckbox" id="numbersCheckbox" class="main__generator__container__form__formInputs">
+                    </div>
+                    <div class="main__generator__container__form__formControlContainers">
+                        <label for="symbolCheckbox" class="main__generator__container__form__formLabels">Contain Special Characters</label>
+                        <input type="checkbox" name="symbolCheckbox" id="symbolCheckbox" class="main__generator__container__form__formInputs">
+                    </div>
+                    <button class="main__generator__container__form__submitBtn" id="formSubmitBtn">Generate Password</button>
+                </form>
+            </main>
+        </section>
+    </div>
+    <script type="text/javascript" src="./statics/scripts/script.js"></script>
+</body>
+</html>

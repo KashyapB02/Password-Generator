@@ -1,0 +1,105 @@
+/* ---------- Unfold ---------- */
+@-webkit-keyframes unfold {
+    0% {
+        top: 0;
+    } 100% {
+        top: 100%;
+    }
+}
+
+@-moz-keyframes unfold {
+    0% {
+        top: 0;
+    } 100% {
+        top: 100%;
+    }
+}
+
+@keyframes unfold {
+    0% {
+        top: 0;
+    } 100% {
+        top: 100%;
+    }
+}
+/* ---------------------------- */
+
+/* ---------- Animated Gradiant ---------- */
+@-webkit-keyframes animated-gradient {
+    0% {
+        background-position: 0% 50%;
+    } 50% {
+        background-position: 100% 50%;
+    } 100% {
+        background-position: 0% 50%;
+    }
+}
+
+@-moz-keyframes animated-gradient {
+    0% {
+        background-position: 0% 50%;
+    } 50% {
+        background-position: 100% 50%;
+    } 100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes animated-gradient {
+    0% {
+        background-position: 0% 50%;
+    } 50% {
+        background-position: 100% 50%;
+    } 100% {
+        background-position: 0% 50%;
+    }
+}
+/* --------------------------------------- */
+
+/* ---------- Fill Width ---------- */
+@-webkit-keyframes fill-width {
+    0% {
+        width: 0;
+    } 100% {
+        width: 100%;
+    }
+}
+@-moz-keyframes fill-width {
+    0% {
+        width: 0;
+    } 100% {
+        width: 100%;
+    }
+}
+@keyframes fill-width {
+    0% {
+        width: 0;
+    } 100% {
+        width: 100%;
+    }
+}
+/* -------------------------------- */
+
+/* ---------- Collapse Width ---------- */
+@-webkit-keyframes collapse-width {
+    0% {
+        width: 100%;
+    } 100% {
+        width: 0;
+    }
+}
+@-moz-keyframes collapse-width {
+    0% {
+        width: 100%;
+    } 100% {
+        width: 0;
+    }
+}
+@keyframes collapse-width {
+    0% {
+        width: 100%;
+    } 100% {
+        width: 0;
+    }
+}
+/* ------------------------------------ */
