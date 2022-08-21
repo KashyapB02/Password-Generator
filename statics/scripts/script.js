@@ -1,4 +1,8 @@
+import db from './firebase.js';
+import { collection, getDocs, addDoc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
+
 console.log("Hello, JavaScript");
+const collectionRef = collection(db, "passwords");
 
 const upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
@@ -53,19 +57,83 @@ const getCharacter = () => {
     return character;
 }
 
-const generatePassword = () => {
+const checkCase = (character, passStatus) => {
+    if (!isNaN(character * 1)) {
+        passStatus.numbers = true;
+    } else if ((character.charCodeAt() >= 65 && character.charCodeAt() <= 90)) {
+        passStatus.uppercase = true;
+    } else if ((character.charCodeAt() >= 97 && character.charCodeAt() <= 122)) {
+        passStatus.lowercase = true;
+    } else {
+        passStatus.symbols = true;
+    }
+}
+
+const getPassword = (passwordList) => {
     const passLength = passwordLength.value;
+    const passStatus = {
+        uppercase: false,
+        lowercase: false,
+        numbers: false,
+        symbols: false,
+
+        sendStatus: function () {
+            if ((uppercaseCheckbox.checked) && (!this.uppercase)) {
+                return false;
+            }
+        
+            if ((lowercaseCheckbox.checked) && (!this.lowercase)) {
+                return false;
+            }
+        
+            if ((numbersCheckbox.checked) && (!this.numbers)) {
+                return false;
+            }
+        
+            if ((symbolCheckbox.checked) && (!this.symbols)) {
+                return false;
+            }
+        
+            return true;
+        }
+    }
+
     let password = "";
 
-    for (let i = 0; i < passLength; i++) {
-        const character = getCharacter();
-        password += character;
-    }
+    do {
+        password = "";
+        for (let i = 0; i < passLength; i++) {
+            const character = getCharacter();
+            checkCase(character, passStatus);
+            password += character;
+        }
+    } while (!passStatus.sendStatus() || passwordList.includes(password));
 
     passwordText.innerText = password;
     if (passwordText.classList.contains("textSelectDisabled")) {
         passwordText.classList.remove("textSelectDisabled");
     }
+}
+
+const generatePassword = () => {
+    const passwordList = [];
+    getDocs(collectionRef).then((snapshot) => {
+        snapshot.docs.forEach((doc) => {
+            passwordList.push(doc.data().password);
+        })
+        getPassword(passwordList);
+
+        let password = passwordText.innerText;
+        addDoc(collectionRef, {
+            passwordString: password
+        }).then(() => {
+            console.log("Password Created Successfully");
+        }).catch((err) => {
+            console.error(err.message);
+        })
+    }).catch((error) => {
+        console.error(error.message);
+    })
 }
 
 const activateModal = (message) => {

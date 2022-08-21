@@ -144,6 +144,7 @@ button {
 }
 
 .main__container__header__hamburgerLines {
+    background-color: rgb(100, 100, 100, 0.75);
     width: 1rem;
     height: 2px;
     border: 1px solid rgb(100, 100, 100, 0.75);
@@ -151,9 +152,10 @@ button {
 }
 
 .main__generator {
+    padding-top: 6.25rem;
     flex: 1;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     position: relative;
 }
