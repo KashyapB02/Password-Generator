@@ -1,8 +1,7 @@
 import db from './firebase.js';
 import { collection, getDocs, addDoc } from 'https://www.gstatic.com/firebasejs/9.9.1/firebase-firestore.js';
 
-console.log("Hello, JavaScript");
-const collectionRef = collection(db, "passwords");
+// const collectionRef = collection(db, "passwords");
 
 const upperLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const lowerLetters = "abcdefghijklmnopqrstuvwxyz";
@@ -69,7 +68,7 @@ const checkCase = (character, passStatus) => {
     }
 }
 
-const getPassword = (passwordList) => {
+const getPassword = () => {
     const passLength = passwordLength.value;
     const passStatus = {
         uppercase: false,
@@ -107,7 +106,8 @@ const getPassword = (passwordList) => {
             checkCase(character, passStatus);
             password += character;
         }
-    } while (!passStatus.sendStatus() || passwordList.includes(password));
+    // } while (!passStatus.sendStatus() || passwordList.includes(password));
+    } while (!passStatus.sendStatus());
 
     passwordText.innerText = password;
     if (passwordText.classList.contains("textSelectDisabled")) {
@@ -116,24 +116,26 @@ const getPassword = (passwordList) => {
 }
 
 const generatePassword = () => {
-    const passwordList = [];
-    getDocs(collectionRef).then((snapshot) => {
-        snapshot.docs.forEach((doc) => {
-            passwordList.push(doc.data().password);
-        })
-        getPassword(passwordList);
+    // const passwordList = [];
+    // getDocs(collectionRef).then((snapshot) => {
+    //     snapshot.docs.forEach((doc) => {
+    //         passwordList.push(doc.data().password);
+    //     })
+    //     getPassword(passwordList);
 
-        let password = passwordText.innerText;
-        addDoc(collectionRef, {
-            passwordString: password
-        }).then(() => {
-            console.log("Password Created Successfully");
-        }).catch((err) => {
-            console.error(err.message);
-        })
-    }).catch((error) => {
-        console.error(error.message);
-    })
+    //     let password = passwordText.innerText;
+    //     addDoc(collectionRef, {
+    //         passwordString: password
+    //     }).then(() => {
+    //         console.log("Password Created Successfully");
+    //     }).catch((err) => {
+    //         console.error(err.message);
+    //     })
+    // }).catch((error) => {
+    //     console.error(error.message);
+    // })
+
+    getPassword();
 }
 
 const activateModal = (message) => {
@@ -165,7 +167,7 @@ passwordCopyBtn.onclick = function () {
         passwordCopyBtn.innerText = "COPIED"
         passwordCopyBtn.setAttribute("disabled", "");
     } else {
-        alert("Error");
+        activateModal("An unexpected error occurred.\nPlease copy the password manually.");
     }
 
     textarea.remove();

@@ -475,6 +475,10 @@ button {
     .main__generator__container {
         max-width: 600px;
     }
+
+    .main__modal__container {
+        max-width: 480px;
+    }
 }
 
 @media screen and (min-width: 1920px) {
@@ -485,6 +489,10 @@ button {
     .main__generator__container {
         max-width: 720px;
     }
+
+    .main__modal__container {
+        max-width: 600px;
+    }
 }
 
 @media screen and (min-width: 2500px) {
@@ -494,5 +502,9 @@ button {
 
     .main__generator__container {
         max-width: 900px;
+    }
+
+    .main__modal__container {
+        max-width: 760px;
     }
 }
